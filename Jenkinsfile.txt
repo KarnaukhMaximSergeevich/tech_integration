@@ -4,32 +4,33 @@ pipeline {
     stages {
         stage('Stage 1: Печать сообщения') {
             steps {
-                sh 'echo "Привіт! Це Stage 1: Початок роботи."'
+                bat 'echo Привіт! Це Stage 1: Початок роботи.'
             }
         }
         
         stage('Stage 2: Перевірка директорії') {
             steps {
-                sh '''
-                echo "Stage 2: Вміст поточної директорії:"
-                ls -la
+                bat '''
+                echo Stage 2: Вміст поточної директорії:
+                dir
                 '''
             }
         }
         
         stage('Stage 3: Створення директорії') {
             steps {
-                sh '''
+                bat '''
                 mkdir test_directory
-                echo "Stage 3: Директорію створено успішно!"
+                echo Stage 3: Директорію створено успішно!
                 '''
             }
         }
         
         stage('Stage 4: Завершення') {
             steps {
-                sh 'echo "Stage 4: Завершення роботи Pipeline."'
+                bat 'echo Stage 4: Завершення роботи Pipeline.'
             }
         }
     }
 }
+
